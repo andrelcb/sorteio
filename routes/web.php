@@ -12,5 +12,14 @@
 */
 
 Route::get('/', function () {
-    return view('aposta/cadastro');
+    return view('aposta/cadastro', ['script' => 'aposta.js']);
+});
+
+Route::resource('/cadastra-aposta', 'ControllerAposta');
+
+Route::prefix('admin')->group(function () {
+
+    Route::get('login', function () {
+        return view('conta/login');
+    })->name('login');
 });
