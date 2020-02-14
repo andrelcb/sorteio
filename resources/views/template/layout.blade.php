@@ -25,7 +25,7 @@
 <script src={{ asset("js/app.js") }}></script>
 <script src={{ asset("js/plugins/jquery-form/jquery.form.min.js") }}></script>
 <script src={{ asset("js/scripts.js") }}></script>
-<script src={{ asset("js/paginas/{$script}") }}></script>
+@if($script)<script src={{ asset("js/paginas/{$script}") }}></script>@endif
 
 
 </body>

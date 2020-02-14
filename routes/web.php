@@ -22,4 +22,6 @@ Route::prefix('admin')->group(function () {
     Route::get('login', function () {
         return view('conta/login');
     })->name('login');
+
+    Route::get('apostas', 'ControllerAposta@index')->name('lista');
 });

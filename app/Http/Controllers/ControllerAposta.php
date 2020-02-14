@@ -21,7 +21,18 @@ class ControllerAposta extends Controller
      */
     public function index()
     {
-
+        $result = $this->aposta->all();
+        // dd($result);
+        // exit;
+        if ($result) {
+            return view(
+                'admin/apostas/lista',
+                [
+                    "script" => "",
+                    'results' => $result
+                ]
+            );
+        }
     }
 
     /**
@@ -31,7 +42,6 @@ class ControllerAposta extends Controller
      */
     public function create()
     {
-
     }
 
     /**
@@ -47,10 +57,10 @@ class ControllerAposta extends Controller
         try {
             $aposta = $this->aposta->create($data);
 
-            if($aposta) {
+            if ($aposta) {
                 return response()->json(["success", "Aposta cadastrada com sucesso."]);
             }
-        }catch(\Exception $e){
+        } catch (\Exception $e) {
             return response()->json($e->getMessage(), 401);
         }
     }
