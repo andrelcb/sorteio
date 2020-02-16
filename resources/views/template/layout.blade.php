@@ -1,13 +1,16 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <meta charset="utf-8">
+    <html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
+    <!-- CSRF Token -->
+    <meta name="csrf-token" content="{{ csrf_token() }}">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <title>Sorteio</title>
-  <meta name="csrf-token" content="{{ csrf_token() }}">
+
+  <title>{{ config('app.name', 'Sorteio') }}</title>
   <link rel="stylesheet" href={{ asset("css/app.css") }}>
   <link rel="stylesheet" href={{ asset("css/style.css") }}>
-  <link rel="stylesheet" href={{ asset("js/plugins/toastr/toastr.css") }}>
+  <link rel="stylesheet" href={{ asset("plugins/toastr/toastr.css") }}>
+  <link rel="stylesheet" href={{ asset("plugins/fontawesome/css/all.min.css") }}>
 </head>
 
 <body>
@@ -19,13 +22,14 @@
   @component('template.footer')@endcomponent
 </div>
 
-<script src={{ asset("js/plugins/jquery/dist/jquery.min.js") }}></script>
-<script src={{ asset("js/plugins/popper/popper.min.js") }}></script>
-<script src={{ asset("js/plugins/toastr/toastr.min.js") }}></script>
+<script src={{ asset("plugins/jquery/dist/jquery.min.js") }}></script>
+<script src={{ asset("plugins/popper/popper.min.js") }}></script>
+<script src={{ asset("plugins/toastr/toastr.min.js") }}></script>
 <script src={{ asset("js/app.js") }}></script>
-<script src={{ asset("js/plugins/jquery-form/jquery.form.min.js") }}></script>
+<script src={{ asset("plugins/jquery-form/jquery.form.min.js") }}></script>
+<script src={{ asset("plugins/fontawesome/js/all.min.js") }}></script>
 <script src={{ asset("js/scripts.js") }}></script>
-@if($script)<script src={{ asset("js/paginas/{$script}") }}></script>@endif
+@if(isset($script))<script src={{ asset("js/paginas/{$script}") }}></script>@endif
 
 
 </body>

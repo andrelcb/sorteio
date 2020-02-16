@@ -1,27 +1,24 @@
 <?php
 
-/*
-|--------------------------------------------------------------------------
-| Web Routes
-|--------------------------------------------------------------------------
-|
-| Here is where you can register web routes for your application. These
-| routes are loaded by the RouteServiceProvider within a group which
-| contains the "web" middleware group. Now create something great!
-|
-*/
-
+//conta para a home do sistema de apostas, onde o usuario ja entra colocando seus dados cadastrais
 Route::get('/', function () {
     return view('aposta/cadastro', ['script' => 'aposta.js']);
 });
 
+
+
+//conta para o cadastro de apostas
 Route::resource('/cadastra-aposta', 'ControllerAposta');
 
-Route::prefix('admin')->group(function () {
 
-    Route::get('login', function () {
-        return view('conta/login');
-    })->name('login');
+//autenticação basica do laravel.
+Auth::routes();
+
+//grupo de admin para tudo que se relaciona a area de admintração.
+Route::prefix('admin')->middleware('auth')->group(function () {
+    Route::get('/', function () {
+        return view('admin/home', ['script' => '']);
+    })->name('home');
 
     Route::get('apostas', 'ControllerAposta@index')->name('lista');
 });

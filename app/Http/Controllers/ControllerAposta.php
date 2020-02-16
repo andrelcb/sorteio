@@ -22,8 +22,6 @@ class ControllerAposta extends Controller
     public function index()
     {
         $result = $this->aposta->all();
-        // dd($result);
-        // exit;
         if ($result) {
             return view(
                 'admin/apostas/lista',

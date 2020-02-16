@@ -7,7 +7,7 @@ var aposta = (function () {
             e.preventDefault();
 
             $('.salvar').prop('disabled', true);
-            
+
             $(this).ajaxSubmit({
                 url: getDomain()+'/cadastra-aposta',
                 type: 'POST',
@@ -16,6 +16,7 @@ var aposta = (function () {
                     openLoad();
                 },
                 success: function (response) {
+                    $('.salvar').prop('disabled', false);
                     closeLoad();
                     $('.salvar').prop('disabled', false);
                     toastr[response[0]](response[1]);
