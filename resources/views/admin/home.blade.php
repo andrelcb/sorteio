@@ -3,7 +3,6 @@
 <div class="row-fluid">
     <div class="card card-cadastro">
         <div class="card-header">
-            <a href="{{ Route('logout') }}">logout</a>
             <h3 class="panel-title text-center">Menu</h3>
         </div>
         <div class="card-body">
