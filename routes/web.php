@@ -5,8 +5,6 @@ Route::get('/', function () {
     return view('aposta/cadastro', ['script' => 'aposta.js']);
 });
 
-
-
 //conta para o cadastro de apostas
 Route::resource('/cadastra-aposta', 'ControllerAposta');
 
@@ -17,8 +15,11 @@ Auth::routes();
 //grupo de admin para tudo que se relaciona a area de admintração.
 Route::prefix('admin')->middleware('auth')->group(function () {
     Route::get('/', function () {
-        return view('admin/home', ['script' => '']);
+        return view('admin/home');
     })->name('home');
+
+    //rota para sorteio de loteria e avaliar o ganhador.
+    Route::get('sortear', 'ControllerSorteio@sortear')->name('sortear');
 
     Route::get('apostas', 'ControllerAposta@index')->name('lista');
 });

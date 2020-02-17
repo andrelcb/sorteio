@@ -36,7 +36,7 @@
                     </div>
                     <div class="col-sm-6">
                         <div class="form-group">
-                            <label for="email">cidade</label>
+                            <label for="email">Cidade</label>
                             <input type="text" class="form-control" name="cidade" placeholder="Digite sua cidade"
                                 id="cidade" required>
                         </div>
@@ -57,7 +57,7 @@
                     <div class="col-sm-6">
                         <div class="form-group">
                             <label for="pwd">Aposta:</label>
-                            <input type="text" class="form-control" name="aposta" minlength="6" maxlength="6"
+                            <input type="text" class="form-control" id="aposta" name="aposta"
                                 placeholder="Digite sua aposta da loteria" id="aposta" required>
                         </div>
                     </div>

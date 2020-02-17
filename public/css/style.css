@@ -12,6 +12,10 @@ html, body {
 .card-header{
     position: relative;
 }
+.btn-refresh{
+    position: absolute;
+    right: 3px;
+}
 
 .card-cadastro{
     min-width: 750px;
@@ -20,6 +24,10 @@ html, body {
     0px 4px 5px 0px rgba(0, 0, 0, 0.14),
     0px 1px 10px 0px rgba(0, 0, 0, 0.12) !important;
 
+}
+
+.card-heading{
+    position: relative;
 }
 .table{
     overflow: hidden;
@@ -32,6 +40,10 @@ html, body {
     transform: scale(1.02);
     box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12),
     0 1px 2px rgba(0, 0, 0, 0.24)
+}
+.card-resultado{
+    font-size: 25px;
+    font-weight: 700;
 }
 .footer{
     position: fixed;

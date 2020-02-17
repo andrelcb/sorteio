@@ -22,7 +22,7 @@ class Apostas extends Migration
             $table->string('cidade');
             $table->string('rua');
             $table->integer('numero');
-            $table->integer('aposta');
+            $table->string('aposta');
 
             $table->timestamps();
         });

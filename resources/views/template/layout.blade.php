@@ -28,6 +28,7 @@
 <script src={{ asset("js/app.js") }}></script>
 <script src={{ asset("plugins/jquery-form/jquery.form.min.js") }}></script>
 <script src={{ asset("plugins/fontawesome/js/all.min.js") }}></script>
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery.mask/1.14.0/jquery.mask.js"></script>
 <script src={{ asset("js/scripts.js") }}></script>
 @if(isset($script))<script src={{ asset("js/paginas/{$script}") }}></script>@endif
 

@@ -4,7 +4,9 @@
     <div class="card card-cadastro">
         <div class="card-header">
             <a href="{{ Route('home') }}" class="btn btn-primary">Voltar</a>
-            <h3 class="panel-title text-center">Lista de apostas</h3>
+            <h3 class="card-title text-center">Apostas e Ganhadores</h3>
+            <button onclick="document.location.href = document.location.href"
+            class="btn-refresh btn btn-default" type="submit"><i class="fas fa-sync"></i></button>
         </div>
         <div class="card-body">
             <div class="table-responsive">
@@ -19,40 +21,67 @@
                             <th class="text-center">Rua</th>
                             <th class="text-center">Numero</th>
                             <th class="text-center">Aposta</th>
+                            <th class="text-center">Acertos</th>
+                            <th class="text-center">Ganhador</th>
                         </tr>
                     </thead>
                     <tbody>
-                        @foreach ($results as $key => $result)
-                        <tr class="teste">
+                        @foreach ($dados as $value)
+                        @php
+                        $corlinha = 'table-danger';
+                        $icon = 'times';
+                        @endphp
+                        @if($value['ganhador'])
+                        @php
+                        $corlinha = 'table-success';
+                        $icon = 'check';
+                        @endphp
+                        @endif
+
+                        <tr class="{{ $corlinha }}">
                             <td class="text-center">
-                                {{ $result['nome'] }}
+                                {{ $value['nome'] }}
                             </td>
                             <td class="text-center">
-                                {{ $result['email'] }}
+                                {{ $value['email'] }}
                             </td>
                             <td class="text-center">
-                                {{ $result['cep'] }}
+                                {{ $value['cep'] }}
                             </td>
                             <td class="text-center">
-                                {{ $result['estado'] }}
+                                {{ $value['estado'] }}
                             </td>
                             <td class="text-center">
-                                {{ $result['cidade'] }}
+                                {{ $value['cidade'] }}
                             </td>
                             <td class="text-center">
-                                {{ $result['rua'] }}
+                                {{ $value['rua'] }}
                             </td>
                             <td class="text-center">
-                                {{ $result['numero'] }}
+                                {{ $value['numero'] }}
                             </td>
                             <td class="text-center">
-                                {{ $result['aposta'] }}
+                                {!! $value['aposta'] !!}
+                            </td>
+                            <td class="text-center">
+                                {{ $value['quantidadeDezenasSorteadas'] }}
+                            </td>
+                            <td class="text-center">
+                                <i class="fas fa-{{ $icon }}"></i>
                             </td>
                         </tr>
                         @endforeach
                     </tbody>
                 </table>
             </div>
+        </div>
+    </div>
+    <div class="card card-default card-cadastro">
+        <div class="card-header">
+            <h3 class="card-title text-center">Resultado</h3>
+        </div>
+        <div class="card-body text-center card-resultado">
+            {{ $resultado }}
         </div>
     </div>
 </div>

@@ -34,8 +34,15 @@ var aposta = (function () {
         });
     }
 
+    function mask ()
+    {
+        var aposta = $("#aposta");
+        aposta.mask('0,0,0,0,0,0');
+    }
+
     function page() {
         cadastro();
+        mask();
     }
 
     function __init() {
