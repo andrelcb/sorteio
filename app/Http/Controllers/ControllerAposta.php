@@ -50,6 +50,20 @@ class ControllerAposta extends Controller
      */
     public function store(Request $request)
     {
+        $numerosAposta = explode(',', $request->input('aposta'));
+        $aux = '';
+        foreach ($numerosAposta as $value) {
+            if($aux == $value) {
+                return response()->json(["error", "Numeros da aposta estão inválido. Favor nao repetir os numero ex: 112456"]);
+                exit;
+            }
+            if($value > 60 ) {
+                return response()->json(["error", "A dezena nao pode ser maior que 60"]);
+                exit;
+            }
+            $aux = $value;
+
+        }
         $data = $request->all();
 
         try {

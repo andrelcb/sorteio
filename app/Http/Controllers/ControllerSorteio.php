@@ -49,6 +49,7 @@ class ControllerSorteio extends Controller
     private function montaQuantidadeAcertos($aposta)
     {
         $retorno = [];
+
         // Pega numeros que nao foram encontrados nos numeros sorteados
         $numerosNaoEncontrados = array_diff($aposta, $this->getResultado());
         foreach ($aposta as $key => $value) {
@@ -78,6 +79,10 @@ class ControllerSorteio extends Controller
         $listaNumerosSorteio = [];
         // Como definido, gera uma lista de 1 até a quantidade pré-definida
         for ($i = 1; $i <= $this->quantidadePreDefinida; $i++) {
+            if($i < 10) {
+                $i = str_pad($i , 2 , '0' , STR_PAD_LEFT);
+            }
+
             $listaNumerosSorteio[] = $i;
         }
         $this->setListaNumerosSorteio($listaNumerosSorteio);

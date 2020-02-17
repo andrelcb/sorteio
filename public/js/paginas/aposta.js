@@ -37,7 +37,7 @@ var aposta = (function () {
     function mask ()
     {
         var aposta = $("#aposta");
-        aposta.mask('0,0,0,0,0,0');
+        aposta.mask('00,00,00,00,00,00');
     }
 
     function page() {

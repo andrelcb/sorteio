@@ -76,7 +76,7 @@
             </div>
         </div>
     </div>
-    <div class="card card-default card-cadastro">
+    <div style="margin-top: 40px; margin-bottom: 40px;;"" class="card card-default card-cadastro">
         <div class="card-header">
             <h3 class="card-title text-center">Resultado</h3>
         </div>
