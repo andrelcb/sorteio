@@ -41,6 +41,8 @@ class ControllerSorteio extends Controller
                 'ganhador'                     => $quantidadeDezenasSorteadas === $this->quantidadeDezenasVitoria
             ];
         }
+
+        $this->enviaEmail($arrayDadosExibicao);
         $arrayDadosExibicao['resultado'] = implode(",", $this->getResultado());
 
         return view('admin/apostas/sorteados', $arrayDadosExibicao);
@@ -79,8 +81,8 @@ class ControllerSorteio extends Controller
         $listaNumerosSorteio = [];
         // Como definido, gera uma lista de 1 até a quantidade pré-definida
         for ($i = 1; $i <= $this->quantidadePreDefinida; $i++) {
-            if($i < 10) {
-                $i = str_pad($i , 2 , '0' , STR_PAD_LEFT);
+            if ($i < 10) {
+                $i = str_pad($i, 2, '0', STR_PAD_LEFT);
             }
 
             $listaNumerosSorteio[] = $i;
@@ -132,6 +134,23 @@ class ControllerSorteio extends Controller
                 "numero" =>  $value["numero"],
                 "aposta" =>  explode(",", $value['aposta'])
             ]);
+        }
+    }
+
+    public function enviaEmail($apostador)
+    {
+        foreach ($apostador['dados'] as $value) {
+
+            if ($value['ganhador']) {
+                $nome = explode(" ", $value['nome']);
+                $data['nome'] = $nome[0];
+                $data['aposta'] = $value['aposta'];
+                $email = $value['email'];
+                \Mail::send('email.ganhador', $data, function ($message) use ($email) {
+                    $message->from('andre.leonardocb@gmail.com', 'Andre Leonardo');
+                    $message->to($email)->subject('GANHADOR VENHA CONFERIR');
+                });
+            }
         }
     }
 

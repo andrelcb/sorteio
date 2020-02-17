@@ -7,3 +7,4 @@ criar um database com nome: sorteio
 trocar o nome da database para sorteio
 executa o comando: php artisan migrate
 Para executar rode o seguinte comando dentro da raiz do projeto: ```php artisan serve```
+para o envio de email rodar o composer require guzzlehttp/guzzle
